@@ -23,7 +23,7 @@ public class ProgramUI
                 System.Console.WriteLine("Welcome to Rock Paper Scissors! Please select an option. \n" +
                 "1. Play the computer. \n" +
                 "2. Exit application. \n");
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine().ToLower();
                 switch(userInput)
                 {
                     case "1":
@@ -39,7 +39,11 @@ public class ProgramUI
                     break;
                     }
                 PauseUntilKeyPress();
+                //count++
+                //count = 3
+                //return false;
                 }
+
             }
     private void PlayComputer()
     {
@@ -56,54 +60,66 @@ public class ProgramUI
             {
                 case 1:
                 compInput = 1;
-                Console.WriteLine("Computer chose Rock.");
+                Console.WriteLine("Computer chose rock.");
                 if (userInput == "paper")
                 {
-                    Console.WriteLine("You win!");
+                    Console.WriteLine("You win! Press any key to return to menu.");
                 }
                 else if (userInput == "scissors")
                 {
-                    Console.WriteLine("You lose.");
+                    Console.WriteLine("You lose. Press any key to return to menu.");
+                }
+                else if (userInput == "rock")
+                {
+                    Console.WriteLine("It's a tie! Press any key to return to menu.");
                 }
                 else
                 {
-                    Console.WriteLine("It's a tie!");
+                    System.Console.WriteLine("invalid entry, press any key to return to menu.");
                 }
                 break;
                 case 2:
                 compInput = 2;
-                Console.WriteLine("Computer chose Paper.");
+                Console.WriteLine("Computer chose paper.");
                 if (userInput == "scissors")
                 {
-                    Console.WriteLine("You win!");
+                    Console.WriteLine("You win! Press any key to return to menu.");
                 }
                 else if (userInput == "rock")
                 {
-                    System.Console.WriteLine("You lose.");
+                    System.Console.WriteLine("You lose. Press any key to return to menu.");
+                }
+                else if (userInput == "paper")
+                {
+                    Console.WriteLine("It's a tie! Press any key to return to menu.");
                 }
                 else
                 {
-                    Console.WriteLine("It's a tie!");
+                    System.Console.WriteLine("invalid entry, press any key to return to menu.");
                 }
                 break;
                 case 3:
                 compInput = 3;
-                Console.WriteLine("Computer chose Scissors.");
+                Console.WriteLine("Computer chose scissors.");
                 if (userInput == "rock")
                 {
-                    Console.WriteLine("You win!");
+                    Console.WriteLine("You win! Press any key to return to menu.");
                 }
                 else if (userInput == "paper")
                 {
-                    Console.WriteLine("You lose.");
+                    Console.WriteLine("You lose. Press any key to return to menu.");
+                }
+                else if (userInput == "scissors")
+                {
+                    Console.WriteLine("It's a tie! Press any key to return to menu.");
                 }
                 else
                 {
-                    Console.WriteLine("It's a tie!");
+                    System.Console.WriteLine("invalid entry, press any key to return to menu.");
                 }
                 break;
                 default:
-                Console.WriteLine("Invalid entry, please try again.");
+                Console.WriteLine("Invalid entry, press any key to return to menu.");
                 break;
             }
         }
@@ -126,13 +142,19 @@ Delete (delete scorecard)
     private bool CloseApplication()
         {
             Console.Clear();
-            System.Console.WriteLine("Thank you.");
-            PressAnyKey();
+            System.Console.WriteLine("Thank you for playing.");
+            PressAnyKeyExit();
             return false;
         }
     private void PressAnyKey()
     {
-        System.Console.WriteLine("Press ANY KEY to continue...");
+        System.Console.WriteLine("Press ANY KEY to return home...");
+        Console.ReadKey();
+    }
+
+    private void PressAnyKeyExit()
+    {
+        System.Console.WriteLine("Press ANY KEY to Exit...");
         Console.ReadKey();
     }
 }
